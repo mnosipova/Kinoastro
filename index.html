@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#09091a">
+<meta name="description" content="Киноастро — доверь выбор фильма звёздам.">
+<title>КИНОАСТРО</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="stars" aria-hidden="true"></div>
+<main id="app">
+
+<section class="screen active" id="startScreen">
+  <div class="start-wrap">
+    <div class="orbital"><span>✦</span><i></i><b>☾</b></div>
+    <div class="kicker">КИНО × КОСМОС</div>
+    <h1>КИНО<span>АСТРО</span></h1>
+    <p class="tagline">Доверь выбор фильма звёздам.</p>
+    <p class="intro">Введи дату рождения. Мы построим твою космическую карту, найдём несколько подходящих фильмов и предложим выбрать один — не думая слишком долго.</p>
+    <label class="date-label" for="birthDate">Дата рождения</label>
+    <input id="birthDate" type="date" autocomplete="bday" aria-label="Дата рождения">
+    <button class="primary" id="startBtn">ПОСМОТРИМ, ЧТО ГОВОРЯТ ЗВЁЗДЫ ✨</button>
+    <div class="micro">Игровая интерпретация · не научный прогноз</div>
+  </div>
+</section>
+
+<section class="screen" id="profileScreen">
+  <div class="center-wrap">
+    <div class="loader-orbit"><div class="loader-dot"></div></div>
+    <div class="kicker" id="loadingKicker">КОСМИЧЕСКАЯ КАРТА</div>
+    <h2 id="loadingText">Анализируем дату рождения...</h2>
+    <div class="loading-lines"><span></span><span></span><span></span></div>
+    <div class="profile-card hidden" id="profileCard">
+      <div class="profile-top">
+        <div class="zodiac-symbol" id="zodiacSymbol">♌</div>
+        <div><div class="kicker">ТВОЙ КОСМИЧЕСКИЙ ПРОФИЛЬ</div><h2 id="zodiacName">Лев</h2></div>
+      </div>
+      <div class="profile-grid">
+        <div><span>СТИХИЯ</span><b id="element">🔥 Огонь</b></div>
+        <div><span>ПЛАНЕТА</span><b id="planet">☀️ Солнце</b></div>
+      </div>
+      <p id="profileText"></p>
+      <button class="primary" id="candidatesBtn">ПОКАЗАТЬ КАНДИДАТОВ →</button>
+    </div>
+  </div>
+</section>
+
+<section class="screen" id="candidatesScreen">
+  <div class="candidates-wrap">
+    <div class="kicker">ТВОЯ КОСМИЧЕСКАЯ ПОДБОРКА</div>
+    <h2>Звёзды выбрали<br><span>5 фильмов.</span></h2>
+    <p class="sub">Но только один из них сегодня действительно твой.</p>
+    <div class="intuition-note">Не думай слишком долго.<br><b>Какая карточка притягивает тебя больше остальных?</b></div>
+    <div class="candidate-grid" id="candidateGrid"></div>
+    <div class="selection-hint" id="selectionHint">Выбери одну карточку</div>
+  </div>
+</section>
+
+<section class="screen" id="revealScreen">
+  <div class="reveal-wrap">
+    <div class="kicker" id="revealKicker">✦ ЗВЁЗДЫ ОПРЕДЕЛИЛИСЬ...</div>
+    <h2 id="revealTitle">Твой фильм сегодня —</h2>
+    <div class="reveal-card" id="revealCard">
+      <div class="reveal-poster"><img id="moviePoster" alt=""></div>
+      <div class="movie-info">
+        <div class="movie-title" id="movieTitle"></div>
+        <div class="movie-meta" id="movieMeta"></div>
+        <div class="rating-pill" id="movieRating"></div>
+      </div>
+    </div>
+    <div class="why-card">
+      <div class="kicker">ПОЧЕМУ ИМЕННО ОН?</div>
+      <h3>Звёзды выбрали его не случайно.</h3>
+      <p id="whyText"></p>
+    </div>
+    <button class="primary" id="resultBtn">ПОКАЗАТЬ МОЙ КИНОАСТРОПРОГНОЗ →</button>
+  </div>
+</section>
+
+<section class="screen" id="resultScreen">
+  <div class="result-wrap">
+    <div class="kicker">ТВОЙ КИНОАСТРОПРОГНОЗ</div>
+    <h2>Сегодня Вселенная<br><span>на твоей стороне.</span></h2>
+    <div class="result-poster"><img id="resultPoster" alt=""></div>
+    <div class="result-main">
+      <div class="result-label">ТВОЙ ФИЛЬМ</div>
+      <div class="result-movie" id="resultMovie"></div>
+      <div class="result-meta" id="resultMeta"></div>
+    </div>
+    <div class="compatibility">
+      <div class="compat-head"><span>Астрологическая совместимость</span><b id="compatPct">92%</b></div>
+      <div class="compat-track"><i id="compatBar"></i></div>
+      <p id="compatText"></p>
+    </div>
+    <div class="mini-stats">
+      <div><span>Твой знак</span><b id="resultZodiac"></b></div>
+      <div><span>Стихия</span><b id="resultElement"></b></div>
+    </div>
+    <button class="secondary full" id="alternativesBtn">ПОКАЗАТЬ АЛЬТЕРНАТИВЫ</button>
+    <div class="alternatives hidden" id="alternatives"></div>
+    <div class="actions">
+      <button class="primary" id="shareBtn">ПОДЕЛИТЬСЯ РЕЗУЛЬТАТОМ</button>
+      <button class="secondary full" id="againBtn">ПОПРОБОВАТЬ ЕЩЁ РАЗ</button>
+    </div>
+  </div>
+</section>
+
+</main>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
